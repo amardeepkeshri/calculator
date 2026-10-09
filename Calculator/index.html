@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <style>
+        td{
+            text-align: center;
+            font-weight: bold;
+            border-radius: 30px;
+            color:white;
+            font-size: 18px;
+            background-color: black;
+            box-shadow: 2px 3px 5px rgb(116,111,111);
+        }
+        @media(max-width: 1000px) {
+            body{background-color:red ;
+            }   
+        }
+        @media(max-width: 768px) {
+            body{background-color:green;
+            }   
+        }
+        @media(max-width: 500px) {
+            body{background-color:yellow ;
+            }   
+        }
+    </style>
+</head>
+<body>
+    <table border="1" id="table">
+        <tr>
+            <td colspan="4">
+                <input type="text" id="res">
+            </td>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td>/</td>
+            <td>-</td>
+            <td>C</td>
+
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td rowspan="2">+</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td rowspan="2">=</td>
+        </tr>
+        <tr>
+            <td colspan="2">0</td>
+            <td>.</td>
+        </tr>
+    </table>
+    <script>
+        let res=document.getElementById("res");
+        let allelm= document.getElementById("table");
+        allelm.addEventListener("click",(event)=>{
+            if (event.target.innerText == "="){
+                res.value = eval(res.value);
+            } else if(event.target.innerText == "C"){
+                res.value = "";
+            }
+            else{
+                res.value += event.target.innerText;
+            }
+            //console.log(event);
+        })
+    </script>
+</body>
+</html>
